@@ -7,10 +7,10 @@ const result = document.querySelector(".result");
 // let box_1 = { w: 10, l: 30, h: 12 },
 //     box_2 = { w: 14, l: 12, h: 20 },
 //     box_3 = { w: 5, l: 24, h: 7 };
-let box_1 = [13, 30, 12],
-    box_2 = [14, 12, 20],
-    box_3 = [5, 24, 7];
-// [box_1, box_2, box_3].forEach(obj => obj.price = obj.w * obj.l * obj.h);
+let box_1 = [13, 30, 5],
+    box_2 = [16, 12, 20],
+    box_3 = [10, 24, 7];
+    
 [box_1, box_2, box_3].forEach(obj => {
     obj.sort(function (a, b) { return a - b });
     obj.price = obj[0] * obj[1] * obj[2];
@@ -34,7 +34,7 @@ function SearchTheBestBox(e) {
     let matching_boxes = WhichBoxFits(),
         m_boxes_len = matching_boxes.length;
     if (m_boxes_len == 0) {
-        result.innerText = `Нет подходящей коробки`
+        result.innerText = "No matching box";
     } else {
         let min_price = matching_boxes[0].price, best_box = matching_boxes[0];
         for (let i = 0; i < m_boxes_len; i++) {
@@ -44,7 +44,7 @@ function SearchTheBestBox(e) {
                 best_box = box;
             }
         }
-        result.innerText = `Цена самой подходящей коробки: ${best_box.price}`
+        result.innerText = `The best price: ${best_box.price}`;
     }
 }
 
