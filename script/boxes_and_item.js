@@ -23,7 +23,7 @@ box_3.name = "box_3";
     obj.price = obj[0] * obj[1] * obj[2];
 });
 
-function WhichBoxFits() {
+function whichBoxFits() {
     let boxes = [box_1, box_2, box_3],
         item_props = [item_w.value, item_l.value, item_h.value].sort(function (a, b) { return a - b })
     boxes.forEach(arr => {
@@ -37,8 +37,8 @@ function WhichBoxFits() {
     return boxes.filter(Boolean);
 }
 
-function SearchTheBestBox(e) {
-    let matching_boxes = WhichBoxFits(),
+function searchTheBestBox(e) {
+    let matching_boxes = whichBoxFits(),
         m_boxes_len = matching_boxes.length;
     if (m_boxes_len == 0) {
         result.innerText = "No matching box";
@@ -57,7 +57,7 @@ function SearchTheBestBox(e) {
 }
 
 submit.addEventListener('click', (ev) => {
-    SearchTheBestBox(ev);
+    searchTheBestBox(ev);
     b_1.style.color = "black";
     b_2.style.color = "black";
     b_3.style.color = "black";
