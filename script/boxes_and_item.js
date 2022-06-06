@@ -10,6 +10,9 @@ const result = document.querySelector(".result");
 let box_1 = [13, 30, 5],
     box_2 = [16, 12, 20],
     box_3 = [10, 24, 7];
+box_1.name = "box_1";
+box_2.name = "box_2";
+box_3.name = "box_3";
     
 [box_1, box_2, box_3].forEach(obj => {
     obj.sort(function (a, b) { return a - b });
@@ -44,6 +47,7 @@ function SearchTheBestBox(e) {
                 best_box = box;
             }
         }
+        document.getElementById(`${best_box.name}`).style.color = "cadetblue";
         result.innerText = `The best price: ${best_box.price}`;
     }
 }
