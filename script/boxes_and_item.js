@@ -1,8 +1,12 @@
-const item_w = document.getElementById("width");
-const item_l = document.getElementById("length");
-const item_h = document.getElementById("height");
-const submit = document.querySelector(".submit");
-const result = document.querySelector(".result");
+const item_w = document.getElementById("width"),
+    item_l = document.getElementById("length"),
+    item_h = document.getElementById("height");
+const submit = document.querySelector(".submit"),
+    result = document.querySelector(".result");
+const b_1 = document.getElementById("box_1"),
+    b_2 = document.getElementById("box_2"),
+    b_3 = document.getElementById("box_3");
+
 //имеет ли значение, что является чем, если при вращении все поменятется?
 // let box_1 = { w: 10, l: 30, h: 12 },
 //     box_2 = { w: 14, l: 12, h: 20 },
@@ -13,7 +17,7 @@ let box_1 = [13, 30, 5],
 box_1.name = "box_1";
 box_2.name = "box_2";
 box_3.name = "box_3";
-    
+
 [box_1, box_2, box_3].forEach(obj => {
     obj.sort(function (a, b) { return a - b });
     obj.price = obj[0] * obj[1] * obj[2];
@@ -52,4 +56,9 @@ function SearchTheBestBox(e) {
     }
 }
 
-submit.addEventListener('click', (ev) => { SearchTheBestBox(ev) });
+submit.addEventListener('click', (ev) => {
+    SearchTheBestBox(ev);
+    b_1.style.color = "black";
+    b_2.style.color = "black";
+    b_3.style.color = "black";
+});
