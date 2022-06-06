@@ -28,7 +28,7 @@ function whichBoxFits() {
         item_props = [item_w.value, item_l.value, item_h.value].sort(function (a, b) { return a - b })
     boxes.forEach(arr => {
         for (let i = 0; i < 3; i++) {
-            if (~~arr[i] < ~~item_props[i]) {
+            if (Number(arr[i]) < Number(item_props[i])) {
                 delete boxes[boxes.indexOf(arr)];
                 break;
             }
@@ -40,6 +40,9 @@ function whichBoxFits() {
 function searchTheBestBox(e) {
     let matching_boxes = whichBoxFits(),
         m_boxes_len = matching_boxes.length;
+    b_1.style.color = "black";
+    b_2.style.color = "black";
+    b_3.style.color = "black";
     if (m_boxes_len == 0) {
         result.innerText = "No matching box";
     } else {
@@ -58,7 +61,4 @@ function searchTheBestBox(e) {
 
 submit.addEventListener('click', (ev) => {
     searchTheBestBox(ev);
-    b_1.style.color = "black";
-    b_2.style.color = "black";
-    b_3.style.color = "black";
 });
